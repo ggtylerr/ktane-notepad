@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DynamicModule from "../components/DynamicModule.tsx";
+
+const { module } = Astro.params;
+const modulePath = module ? module : "Wires";
+
+export function getStaticPaths() {
+    const modules = import.meta.glob("../components/modules/*");
+    return Object.keys(modules).map((module) => ({ params: { module: module.replace("../components/modules/", "").replace(".tsx", "") } }));
+}
+---
+
+<Layout>
+    <DynamicModule modulePath={modulePath} client:only="react" />
+</Layout>

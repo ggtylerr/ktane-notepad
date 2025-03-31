@@ -1,0 +1,283 @@
+html {
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+    max-width: 75%;
+    scroll-behavior: smooth;
+}
+@media (max-device-width: 1000px) {
+    html {
+        max-width: 100%;
+    }
+}
+body {
+    display: flex;
+    justify-content: space-between;
+}
+section {
+    padding: 1rem;
+    background-color: var(--clr-surface);
+}
+hr {
+    border: 1px solid var(--clr-overlay);
+}
+a {
+    color: var(--clr-accent);
+    text-decoration: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th, td {
+    border: 1px solid var(--clr-overlay);
+}
+h1 {
+    margin-top: 0;
+}
+prlgm, .prlgm, button {
+    display: inline-block !important;
+    background-color: rgba(var(--clr-accent-rgb), 0.4);
+    color: var(--clr-bg);
+    transform: skew(-14.036deg);
+    width: calc(100% - 1em);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 1.4em;
+    margin: 0 0.3em;
+    position: relative;
+    top: 0.1em;
+    font-family: "Onest", Verdana, sans-serif;
+    font-weight: 900;
+}
+prlgm::before, .prlgm::before, button::before {
+    content: "";
+    display: block !important;
+    position: absolute;
+    top: -0.1em;
+    left: 0;
+    transform: skew(28.072deg) !important;
+    width: 100%;
+    height: 1.6em;
+    background: var(--clr-accent);
+}
+prlgm > *, .prlgm > *, button > * {
+    display: inline-block;
+    transform: skew(14.036deg);
+    line-height: 1.4em;
+    padding-left: 0.1em;
+    padding-right: 0.2em;
+    position: relative;
+    top: -0.1em;
+}
+button {
+    background: rgba(var(--clr-accent-rgb), 0.4);
+    color: inherit !important;
+    transition: .2s ease-out;
+    cursor: pointer;
+    text-transform: none;
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    border: none;
+}
+button:hover {
+    color: var(--clr-surface) !important;
+}
+button::before {
+    background: linear-gradient(to right, var(--clr-accent) 50%, var(--clr-surface) 0) right / 200% 100%;
+    border: 1px solid var(--clr-accent);
+    transition: .2s ease-out;
+}
+button:hover::before {
+    background-position: left;
+}
+prlgm.input-text, .prlgm.input-text {
+    background-color: var(--clr-accent-trans0);
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+    margin: 0 0.5em;
+}
+prlgm.input-text:before, .prlgm.input-text:before {
+    background-color: var(--clr-surface);
+    border: solid 1px var(--clr-accent-trans0);
+    border-bottom-color: var(--clr-accent);
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+}
+prlgm.input-text:hover, prlgm.input-text:active,
+prlgm.input-text:focus, .prlgm.input-text:hover,
+.prlgm.input-text:active, .prlgm.input-text:focus,
+prlgm.input-text:focus-within,
+.prlgm.input-text:focus-within {
+    border-color: var(--clr-accent) !important;
+}
+input::placeholder {
+    color: var(--clr-text);
+    opacity: 0.5;
+}
+input:-ms-input-placeholder {
+    color: var(--clr-text);
+    opacity: 0.5;
+}
+input::-ms-input-placeholder {
+    color: var(--clr-text);
+    opacity: 0.5;
+}
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+.input-before {
+    height: 1.4em;
+    width: 0.8em;
+    font-size: 1em;
+}
+.input-before::before {
+    height: 1.6em;
+    width: 1em;
+}
+.input-text.num {
+    width: 0;
+}
+.input-text.num::before {
+    top: -0.25em;
+    left: -0.5em;
+    width: 2em;
+}
+.input-text.num input {
+    left: -0.4em;
+    width: 2em;
+    text-align: center;
+}
+.input-after {
+    height: 1.4em;
+    width: 0.8em;
+    font-size: 1em;
+    left: 1.2em;
+}
+.input-after::before {
+    height: 1.6em;
+    width: 1em;
+    left: -0.3em;
+}
+.input-after span {
+    left: -0.5em;
+}
+prlgm > input, .prlgm > input, prlgm > select, .prlgm > select {
+    outline: none;
+    background: none;
+    color: var(--clr-text);
+    border: none;
+}
+prlgm > input:focus, .prlgm > input:focus,
+prlgm > select:focus, .prlgm > select:focus {
+    outline: none;
+}
+prlgm:has(> input[type="checkbox"]), .prlgm:has(> input[type="checkbox"]) {
+    height: 1.4em;
+    width: 1.2em;
+}
+prlgm:has(> input[type="checkbox"])::before,
+.prlgm:has(> input[type="checkbox"])::before {
+    width: 1.2em;
+    height: 1.6em;
+    background: linear-gradient(to right, var(--clr-accent) 50%, var(--clr-surface) 0) right / 200% 100%;
+    transition: .2s ease-out;
+}
+prlgm:has(> input[type="checkbox"]) *,
+.prlgm:has(> input[type="checkbox"]) * {
+    margin: 0;
+}
+prlgm > input[type="checkbox"], .prlgm > input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: absolute;
+    height: 1.8em;
+    width: 1.6em;
+    display: block;
+    z-index: 99;
+    background-color: transparent;
+}
+.checkmark {
+    display: inline-block;
+    height: 1.4em;
+    width: 1.6em;
+    cursor: pointer;
+}
+prlgm:has(> input[type="checkbox"]:checked)::before,
+.prlgm:has(> input[type="checkbox"]:checked)::before,
+prlgm:has(> input[type="checkbox"]):hover::before,
+.prlgm:has(> input[type="checkbox"]):hover::before {
+    background-position: left;
+}
+.checkmark:after {
+    content: '';
+    position: relative;
+    display: none;
+    left: 0.3em;
+    top: 0.4em;
+    width: 0.25em;
+    height: 0.5em;
+    border: none;
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+input[type='checkbox']:checked + .checkmark:after {
+    display: block;
+    background-color: var(--clr-accent);
+    border: solid var(--clr-bg);
+    border-width: 0 2px 2px 0;
+}
+.inner {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+}
+.red {
+    background-color: var(--clr-red);
+    color: var(--clr-bg);
+}
+.yellow {
+    background-color: var(--clr-yellow);
+    color: var(--clr-bg);
+}
+.green {
+    background-color: var(--clr-green);
+    color: var(--clr-bg);
+}
+.blue {
+    background-color: var(--clr-blue);
+    color: var(--clr-bg);
+}
+.white {
+    background-color: var(--clr-white);
+    color: var(--clr-bg);
+}
+.black {
+    background-color: var(--clr-black);
+}
+.greenBG {
+    background: repeating-linear-gradient(
+            59.036deg, var(--clr-green),
+            var(--clr-green) 0.5em,
+            var(--clr-green-trans1) 0.5em,
+            var(--clr-green-trans1) 1em
+    );
+    color: var(--clr-bg);
+}
+.redBG {
+    background: repeating-linear-gradient(
+            59.036deg, var(--clr-red),
+            var(--clr-red) 0.5em,
+            var(--clr-red-trans1) 0.5em,
+            var(--clr-red-trans1) 1em
+    );
+    color: var(--clr-bg);
+}

@@ -1,0 +1,39 @@
+---
+const vanilla = [
+    { name: "Wires", path: "/" },
+    { name: "Button" },
+    { name: "Keypad"},
+    { name: "Simon Says" },
+    { name: "Who's on First", path: "/WhosOnFirst" },
+    { name: "Memory" },
+    { name: "Morse Code" },
+    { name: "Complicated Wires" },
+    { name: "Wire Sequences" },
+    { name: "Maze" },
+    { name: "Password" },
+    { name: "Knob" },
+]
+---
+
+<section id="contents">
+    <h1>Vanilla</h1>
+    <ul>
+        {vanilla.map(({ name, path }) => (
+            <li>
+                <a href={path ? path : `/${name.replace(" ","")}`}>{name}</a>
+            </li>
+        ))}
+    </ul>
+</section>
+
+<style>
+    section {
+        width: 22.5%;
+        height: calc(100vh - 2rem);
+        position: -webkit-sticky;
+        position: sticky;
+        overflow-y: auto;
+        top: 0;
+        align-self: flex-start;
+    }
+</style>

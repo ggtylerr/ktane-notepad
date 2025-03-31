@@ -1,3 +1,11 @@
+---
+import "../styles/colors.css";
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Contents from "../components/Contents.astro";
+import Edgework from "../components/Edgework.tsx";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +13,105 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>KTaNE Notepad</title>
 	</head>
 	<body>
-		<slot />
+		<button id="toggleContents" class="toggle-button" transition:persist><span>≡</span></button>
+		<button id="toggleEdgework" class="toggle-button" transition:persist><span>⚙</span></button>
+		<Contents transition:persist />
+		<main>
+			<section id="m" transition:animate="slide" >
+				<slot />
+			</section>
+		</main>
+		<Edgework client:load transition:persist />
+		<script>
+			let contents = false;
+			let edgework = false;
+
+			document.getElementById('toggleContents')!.addEventListener('click', () => {
+				document.getElementById('contents')!.classList.toggle('active');
+				contents = !contents;
+				if (contents && !edgework) {
+					document.getElementById('m')!.style.display = 'none';
+				} else if (!contents && !edgework) {
+					document.getElementById('m')!.style.display = 'block';
+				}
+			});
+
+			document.getElementById('toggleEdgework')!.addEventListener('click', () => {
+				document.getElementById('edgework')!.classList.toggle('active');
+				edgework = !edgework;
+				if (!contents && edgework) {
+					document.getElementById('m')!.style.display = 'none';
+				} else if (!contents && !edgework) {
+					document.getElementById('m')!.style.display = 'block';
+				}
+			});
+
+		</script>
+		<ClientRouter/>
 	</body>
 </html>
 
-<style>
+<style is:global>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-width: 100%;
+		height: auto;
+	}
+	main {
+		display: flex;
+		gap: 1rem;
+		padding: 1rem 2.5%;
+		flex: 1;
+		min-height: 100%;
+		max-width: 50%;
+		align-items: center;
+		justify-content: center;
+	}
+	.toggle-button {
+		font-size: 2rem;
+		display: none !important;
+	}
+	#toggleContents {
+		position: fixed !important;
+		top: 0.5em;
+		left: 0.5em;
+		z-index: 100;
+	}
+	#toggleEdgework {
+		position: fixed !important;
+		top: 0.5em;
+		right: 0.5em;
+		z-index: 100;
+	}
+	#mobileHeader {
+		display: none;
+	}
+	@media (max-width: 768px) {
+		.toggle-button { display: block !important; }
+		#contents, #edgework {
+			display: none !important;
+		}
+		#contents.active, #edgework.active {
+			display: block !important;
+			width: 75%;
+		}
+		#mobileHeader {
+			display: block;
+			height: 3em;
+		}
+		html, body {
+			width: 100%;
+		}
+		main {
+			max-width: 100% !important;
+		}
+		#m {
+			margin-top: 5em;
+		}
 	}
 </style>
