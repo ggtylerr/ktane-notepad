@@ -4,7 +4,7 @@ KTaNE Notepad (KNP) is an experimental website for the game [Keep Talking and No
 that tries to offer a balance between the original bomb manual, ["optimized" manuals,](https://github.com/michalmatlega/ktane-pocket-manual)
 and programs that [can be considered cheating.](https://github.com/ggtylerr/KAaNE-AE-)
 
-(demo video here)
+https://github.com/user-attachments/assets/aa41b06e-39bf-46c4-b14a-f7dd2fe312e3
 
 You can view the demo here: https://knp.ggtyler.dev
 
